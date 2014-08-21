@@ -1,21 +1,413 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+///////////////////////////////////////////////////
+// 程序名称：xxxxxxxx				 //
+// 编译环境：Visual C++ 6.0 / 2010，EasyX_2014   //
+// 作　　者：wwl /wudi911psyou@gmail.com         //     
+// 最后修改：2014-7-30                           //
+///////////////////////////////////////////////////
+#include<graphics.h>
+#include<conio.h>
+#include<iostream>
+#include"windows.h"
+#include"mmsystem.h"
+#include"conio.h"
+#include"string.h"
+#include"graphics.h"
+#include"stdio.h"
+#pragma  comment(lib,"winmm.lib")
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+using namespace std;
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+void open();					//开场
+void showChooseMenu();				//选择菜单
+void HongAn();					//1、红岸
+void ThreebodyStart();				//2、三体远征
+void DangerYear();				//3、危机纪元
+void MianBiMan();				//4、面壁者
+void UnitedBattleShipMarrine();			//5、联合舰队
+void DarkForest();				//6、黑暗森林
+void ChengXin();				//7、程心
+void WeiDe();					//8、维德
+void OursStar();				//9、我们的星星
+void SongsForThreebody();			//10、三体赋
+void end();
 
-# Executables
-*.exe
-*.out
-*.app
+int main()
+{	int chooseNum;
+	open();
+loop:	showChooseMenu();
+	while(1)
+	{
+		
+		cin>>chooseNum;
+		if(chooseNum == 1)
+		{
+			HongAn();					//1、红岸
+			goto loop;
+		}
+		if(chooseNum == 2)
+		{
+			ThreebodyStart();			//2、三体远征
+			goto loop;
+		}
+		if(chooseNum == 3)
+		{
+			DangerYear();				//3、危机纪元
+			goto loop;
+		}
+		if(chooseNum == 4)				//4、面壁者
+		{
+			MianBiMan();
+			goto loop;
+		}
+		if(chooseNum == 5)
+		{
+			UnitedBattleShipMarrine();		//5、联合舰队
+			goto loop;
+		}
+		if(chooseNum == 6)
+		{
+			DarkForest();				//6、黑暗森林
+			goto loop;
+		}
+		if(chooseNum == 7)
+		{
+			ChengXin();				//7、程心
+			goto loop;
+		}
+		if(chooseNum == 8)
+		{
+			WeiDe();				//8、维德
+			goto loop;
+		}
+		if(chooseNum == 9)
+		{
+			OursStar();				//9、我们的星星
+			goto loop;
+		}
+		if(chooseNum == 10)
+		{
+			SongsForThreebody();			//10、三体赋
+			end();
+			return 0;
+		}
+	}
+	getch();
+	closegraph();
+	return 0;
+}
+void open()
+{
+	
+	initgraph(1100, 700);
+	PlaySound((".\\res\\01open.wav"),NULL, SND_FILENAME|SND_ASYNC);
+	// 绘图环境初始化
+	// 读取图片至绘图窗口
+	loadimage(NULL, ".\\res\\zhiDaLiu.jpg",1100, 700, true);
+	setcolor(RGB(0,0,255));
+	setfont(64,0,"宋体");
+	Sleep(1000);
+	outtextxy(140,20,"--重温三体★观想宇宙--");
+	setcolor(RGB(0,0,255));
+	setfont(30,0,"宋体");
+	outtextxy(570,120,"——致敬大刘");
+	setfont(32,0,"楷体");
+	setcolor(RGB(160,32,24));
+	Sleep(1000);
+	outtextxy(200,200,"◎ 我 们 推 崇 大 刘 ◎");Sleep(2500);
+	outtextxy(200,260,"◎ 是 因 为 他 逆 流 而 上 ◎");Sleep(2500);
+	outtextxy(200,320,"◎ 发 扬 理 性 主 义 和 人 文 精 神 ◎");Sleep(2500);
+	outtextxy(200,380,"◎ 从 哲 学 与 人 性 审 视 宇 宙 ◎");Sleep(2500);
+	outtextxy(200,440,"◎ 于 是，我 们 学 会 了 仰 望 星 空 ◎");
+	Sleep(5000);
+	cleardevice();
+}
+
+void showChooseMenu()
+{
+	loadimage(NULL, ".\\res\\threebody.jpg",1100, 700, true);
+	setcolor(RGB(10,240,67));
+	setfont(64,0,"楷体");
+	outtextxy(150,20,"--★   回望《三体》   ★--");
+	setcolor(RGB(250,24,7));
+	setfont(30,0,"黑体");
+	outtextxy(380,500,"--请选择（按数字键回车结束）--");
+	setcolor(RGB(8,194,150));
+	setfont(32,0,"楷体");
+	outtextxy(50,250,"▓▓▓1、那年，红岸，人类的落日 ║ 6、猎手，隐匿，黑暗森林 ▓▓▓");
+	outtextxy(50,300,"▓▓▓2、三体，远征，寻找恒纪元 ║ 7、因爱，毁灭，圣母     ▓▓▓");
+	outtextxy(50,350,"▓▓▓3、挣扎，进取，危机纪元   ║ 8、冷酷，硬汉，维德     ▓▓▓");
+	outtextxy(50,400,"▓▓▓4、孤独，谁人解，面壁者   ║ 9、最后还剩，我们的星星 ▓▓▓");
+	outtextxy(50,450,"▓▓▓5、抗争，越光年，联合舰队 ║10、终结，怀恋，三体赋   ▓▓▓");
+	outtextxy(700,550,"【made by WWL】");
+	outtextxy(700,600,"【version 1.0】");
+}
+
+void HongAn()					//1、红岸
+{
+	Sleep(1000);
+	PlaySound((".\\res\\HongAn.wav"),NULL, SND_FILENAME|SND_ASYNC);
+	loadimage(NULL, ".\\res\\红岸.jpg",1100, 700, true);
+	setcolor(RGB(56,56,240));
+	setfont(30,0,"仿宋");
+	outtextxy(500,20,"   你说，这是人类的落日   ");Sleep(5000);
+	outtextxy(500,60,"   于是你甘愿接受主的驾临   ");Sleep(5000);
+	outtextxy(500,100,"   你说，我的心早已死去   ");Sleep(5000);
+	outtextxy(500,140,"   于是全人类被你当做人质   ");Sleep(5000);
+	outtextxy(500,180,"   你这个独特的女子   ");Sleep(6000);
+	outtextxy(500,220,"   内心的黑暗我实在难懂   ");Sleep(5000);
+	outtextxy(500,260,"   家的破碎   ");Sleep(5000);
+	outtextxy(500,300,"   在你心头竖起坚硬的墓碑   ");Sleep(5000);
+	outtextxy(500,340,"   血色残阳   ");Sleep(5000);
+	outtextxy(500,380,"   未来的杀戮与你无关   ");Sleep(5000);
+	outtextxy(500,420,"   当你的白发飞舞在虚空   ");Sleep(6000);
+	outtextxy(500,460,"   四光年外的呼唤   ");Sleep(5000);
+	outtextxy(500,500,"   已入，梦中   ");Sleep(5000);
+	outtextxy(500,540,"   于是，功过   ");Sleep(5000);
+	outtextxy(500,580,"   还有谁可评说   ");Sleep(5000);
+	outtextxy(500,620,"     ----致叶文洁   ");
+	Sleep(2000);
+}
+
+void ThreebodyStart()				//2、三体远征
+{
+	Sleep(1000);
+	PlaySound((".\\res\\ThreebodyStart.wav"),NULL, SND_FILENAME|SND_ASYNC);
+	loadimage(NULL, ".\\res\\三体远征.jpg",1100, 700, true);
+	setcolor(RGB(123,10,245));
+	setfont(34,0,"楷体");
+	outtextxy(200,10,"   【 迈 向 征 服 】   ");Sleep(2000);
+	outtextxy(200,80,"   迷醉，缠绕   ");Sleep(2000);
+	outtextxy(200,120,"   三颗太阳永不休止的舞步   ");Sleep(2000);
+	outtextxy(200,160,"   是你们的梦魇   ");Sleep(2000);
+	outtextxy(200,200,"   脱水，还魂   ");Sleep(4000);
+	outtextxy(200,240,"   无序和有序之间   ");Sleep(2000);
+	outtextxy(200,280,"   何处才是平衡的鼓点  ");Sleep(2000);
+	outtextxy(200,320,"   当死亡的电波划破虚空   ");Sleep(2000);
+	outtextxy(200,360,"   不远的彼方   ");Sleep(2000);
+	outtextxy(200,400,"   是梦中的恒纪元   ");Sleep(2000);
+	outtextxy(200,440,"   远航，远航，远航！   ");Sleep(4000);
+	outtextxy(200,480,"   这不屈的种族   ");Sleep(2000);
+	outtextxy(200,520,"   踏出征服的步伐   ");Sleep(2000);
+	outtextxy(200,560,"   准备   ");Sleep(3000);
+	outtextxy(200,600,"   驾临人间......   ");Sleep(2000);
+	Sleep(35000);
+}
+
+void DangerYear()				//3、危机纪元
+{
+	Sleep(1000);
+	PlaySound((".\\res\\DangerYear.wav"),NULL, SND_FILENAME|SND_ASYNC);
+	loadimage(NULL, ".\\res\\危机纪元.jpg",1100, 700, true);
+	setcolor(RGB(31,245,7));
+	setfont(34,0,"宋体");
+	outtextxy(50,30,"   灭亡，只是时间问题   ");Sleep(5000);
+	outtextxy(120,80,"   远方是无际的高墙   ");Sleep(5000);
+	outtextxy(190,130,"   包围一切   ");Sleep(5000);
+	outtextxy(260,180,"   代言着死亡   ");Sleep(5000);
+	outtextxy(330,230,"   但，妥协   ");Sleep(5000);
+	outtextxy(400,280,"   从不是我们的答案  ");Sleep(5000);
+	outtextxy(470,330,"   就是死也要再一次闪耀   ");Sleep(5000);
+	outtextxy(540,380,"   不屈的光辉   ");Sleep(5000);
+	outtextxy(610,430,"   聚变引擎的幽芒   ");Sleep(5000);
+	outtextxy(680,480,"   是我们的呐喊   ");Sleep(5000);
+	outtextxy(750,530,"   来吧，于无际苍茫   ");Sleep(5000);
+	outtextxy(820,580,"   与你决战城下   ");Sleep(5000);
+
+	Sleep(79000);
+}
+
+void MianBiMan()				//4、面壁者
+{
+	Sleep(1000);
+	PlaySound((".\\res\\MianBiMan.wav"),NULL, SND_FILENAME|SND_ASYNC);
+	loadimage(NULL, ".\\res\\MianBiMan.jpg",1100, 700, true);
+	setcolor(RGB(123,154,237));
+	setfont(34,0,"宋体");
+	outtextxy(200,10,"   当我沉默   ");Sleep(4000);
+	outtextxy(200,80,"   蒙娜丽莎也猜不透   ");Sleep(4000);
+	outtextxy(200,120,"   我的微笑   ");Sleep(4000);
+	outtextxy(200,160,"   当我思考   ");Sleep(4000);
+	outtextxy(200,200,"   脑海里泛起   ");Sleep(4000);
+	outtextxy(200,240,"   滚滚思维浪潮   ");Sleep(4000);
+	outtextxy(200,280,"   感情  ");Sleep(4000);
+	outtextxy(200,320,"   对我成为不可及的奢侈   ");Sleep(4000);
+	outtextxy(200,360,"   现实   ");Sleep(4000);
+	outtextxy(200,400,"   变成虚假的梦境   ");Sleep(4000);
+	outtextxy(200,440,"   一切，暗无天日   ");Sleep(4000);
+	outtextxy(200,480,"   一刻，沧海桑田   ");Sleep(4000);
+	outtextxy(200,520,"   弹奏魔咒   ");Sleep(4000);
+	outtextxy(200,560,"   只为找寻梦中的红颜   ");Sleep(4000);
+	outtextxy(600,10,"   跨越百年   ");Sleep(4000);
+	outtextxy(600,80,"   只想拯救心的田园   ");Sleep(4000);
+	outtextxy(600,120,"   看透宇宙的规则   ");Sleep(4000);
+	outtextxy(600,160,"   我不再是我   ");Sleep(4000);
+	outtextxy(600,200,"   不见她的笑颜   ");Sleep(4000);
+	outtextxy(600,240,"   甘愿 与整个世界  ");Sleep(4000);
+	outtextxy(600,280,"   兵戎相见 ");Sleep(4000);
+	outtextxy(600,320,"   面壁者的诅咒   ");Sleep(4000);
+	outtextxy(600,360,"   甘愿背负  ");Sleep(4000);
+	outtextxy(600,400,"   刽子手的玷污   ");Sleep(4000);
+	outtextxy(600,440,"   情愿领受   ");Sleep(4000);
+	outtextxy(600,480,"   只是，那只慵懒的蚂蚁   ");Sleep(4000);
+	outtextxy(600,520,"   如果我做错了什么   ");Sleep(4000);
+	outtextxy(600,560,"   请接受我的道歉...   ");Sleep(4000);
+	Sleep(46000);
+}
+
+void UnitedBattleShipMarrine()		//5、联合舰队
+{
+	Sleep(1000);
+	PlaySound((".\\res\\UnitedBattleShipMarrine.wav"),NULL, SND_FILENAME|SND_ASYNC);
+	loadimage(NULL, ".\\res\\UnitedBattleShipMarrine.jpg",1100, 700, true);
+	setcolor(RGB(250,35,232));
+	setfont(30,0,"楷体");
+	outtextxy(500,20,"  无限壮丽   ");Sleep(5000);
+	outtextxy(500,60,"  聚变引擎的光辉   ");Sleep(5000);
+	outtextxy(500,100,"  是玛利亚温柔的吐息    ");Sleep(5000);
+	outtextxy(500,140,"  蔓延千里    ");Sleep(5000);
+	outtextxy(500,180,"  深空起伏    ");Sleep(6000);
+	outtextxy(500,220,"  是氢核顽皮的舞步    ");Sleep(5000);
+	outtextxy(500,260,"  热泪盈眶    ");Sleep(5000);
+	outtextxy(500,300,"  百年耻辱    ");Sleep(5000);
+	outtextxy(500,340,"  湮灭于千道迷幻光柱    ");Sleep(5000);
+	outtextxy(500,380,"  这一刻    ");Sleep(5000);
+	outtextxy(500,420,"  终于和永恒同在    ");Sleep(6000);
+	outtextxy(500,460,"  上帝之手    ");Sleep(5000);
+	outtextxy(500,500,"  依旧温暖如旧    ");Sleep(5000);
+	outtextxy(500,540,"  这是光明的一天    ");Sleep(5000);
+	outtextxy(500,580,"  让我们崇拜您的荣光    ");Sleep(5000);
+	outtextxy(500,620,"  您的胜利      ");Sleep(5000);
+	Sleep(32000);
+}
+
+void DarkForest()				//6、黑暗森林
+{
+	Sleep(1000);
+	PlaySound((".\\res\\DarkForest.wav"),NULL, SND_FILENAME|SND_ASYNC);
+	loadimage(NULL, ".\\res\\DarkForest.jpg",1100, 700, true);
+	setcolor(RGB(160,232,142));
+	setfont(30,0,"宋体");
+	outtextxy(500,20,"    寂静 死亡   ");Sleep(5000);
+	outtextxy(500,60,"    仿佛只剩这些东西   ");Sleep(5000);
+	outtextxy(500,100,"    暗流涌动  ");Sleep(5000);
+	outtextxy(500,140,"    耳朵里只有猎手的鼻息  ");Sleep(5000);
+	outtextxy(500,180,"    杀与被杀  ");Sleep(6000);
+	outtextxy(500,220,"    相隔千里  ");Sleep(5000);
+	outtextxy(500,260,"    奏响了死亡的旋律  ");Sleep(5000);
+	outtextxy(500,300,"    鱼儿早已上了岸  ");Sleep(5000);
+	outtextxy(500,340,"    浅海正在干涸  ");Sleep(5000);
+	outtextxy(500,380,"    我分明听到母亲的哭泣 ");Sleep(5000);
+	outtextxy(500,420,"    她吟唱着古老的歌谣  ");Sleep(6000);
+	outtextxy(500,460,"    但熵还在升高  ");Sleep(5000);
+	outtextxy(500,500,"    杀戮不会完结  ");Sleep(5000);
+	outtextxy(500,540,"    我却依旧固执的相信着  ");Sleep(5000);
+	outtextxy(500,580,"    有一天  ");Sleep(5000);
+	outtextxy(500,620,"    阳光能照进这片黯淡的黑暗森林    ");Sleep(5000);
+	Sleep(7000);
+}
+
+void ChengXin()				//7、程心
+{
+	Sleep(1000);
+	PlaySound((".\\res\\threebody\\三体歌曲\\ChengXin.wav"),NULL, SND_FILENAME|SND_ASYNC);
+	loadimage(NULL, ".\\res\\threebody\\图片素材\\ChengXin.jpg",1100, 700, true);		
+	setcolor(RGB(31,245,7));
+	setfont(34,0,"宋体");
+	outtextxy(50,30,"  人们都说    ");Sleep(5000);
+	outtextxy(120,80,"  你是圣母    ");Sleep(5000);
+	outtextxy(190,130,"  博爱    ");Sleep(5000);
+	outtextxy(260,180,"  甚至外星种族   ");Sleep(5000);
+	outtextxy(330,230,"  都让你潸然    ");Sleep(5000);
+	outtextxy(400,280,"  你的肩膀不应承受如此重负   ");Sleep(5000);
+	outtextxy(470,330,"  作为女子的你    ");Sleep(5000);
+	outtextxy(540,380,"  也有权利享受被爱的幸福    ");Sleep(5000);
+	outtextxy(610,430,"  来了，爱了    ");Sleep(5000);
+	outtextxy(680,480,"  送给你一刻星星，走了    ");Sleep(5000);
+	outtextxy(750,530,"  这是对你的惩罚    ");Sleep(3000);
+	outtextxy(820,580,"  败给了爱情，    ");Sleep(2000);
+	outtextxy(850,620,"  败给了自己    ");Sleep(2000);
+}
+
+void WeiDe()					//8、维德
+{
+	Sleep(1000);
+	PlaySound((".\\res\\WeiDe.wav"),NULL, SND_FILENAME|SND_ASYNC);
+	loadimage(NULL, ".\\res\\图片素材\\WeiDe.jpg",1100, 700, true);	
+	setcolor(RGB(255,0,0));
+	setfont(30,0,"宋体");
+	outtextxy(500,20,"   前进，    ");Sleep(2000);
+	outtextxy(500,60,"   不择手段的前进    ");Sleep(2000);
+	outtextxy(500,100,"   牺牲   ");Sleep(2000);
+	outtextxy(500,140,"   为了胜利   ");Sleep(2000);
+	outtextxy(500,180,"   屠杀又算得了什么   ");Sleep(3000);
+	outtextxy(500,220,"   挡我路者   ");Sleep(2000);
+	outtextxy(500,260,"   唯有一死   ");Sleep(2000);
+	outtextxy(500,300,"   这是你们的荣幸   ");Sleep(3000);
+	outtextxy(500,340,"   远方的虫子   ");Sleep(2000);
+	outtextxy(500,380,"   是我手里匍匐的蝼蚁  ");Sleep(3000);
+	outtextxy(500,420,"   承诺   ");Sleep(2000);
+	outtextxy(500,460,"   难得遵从一回   ");Sleep(2000);
+	outtextxy(500,500,"   却成为整个人类的哀伤   ");Sleep(3000);
+	outtextxy(500,540,"   铁一样的男人   ");Sleep(2000);
+	outtextxy(500,580,"   血一般的领袖   ");Sleep(2000);
+	outtextxy(500,620,"   风里飘荡着对你亘古的，挽歌     ");Sleep(3000);
+	outtextxy(600,660,"   --致维德     ");Sleep(4000);
+}
+
+void OursStar()				//9、我们的星星
+{
+	Sleep(1000);
+	PlaySound((".\\res\\OursStar.wav"),NULL, SND_FILENAME|SND_ASYNC);
+	loadimage(NULL, ".\\res\\OursStar.jpg",1100, 700, true);	
+	setcolor(RGB(228,12,247));
+	setfont(34,0,"宋体");
+	outtextxy(200,30,"   旋转在银河悬臂   ");Sleep(5000);
+	outtextxy(200,80,"   猎户边缘是我们的星星   ");Sleep(5000);
+	outtextxy(200,120,"   梦里梦见你的倩影   ");Sleep(5000);
+	outtextxy(200,160,"   一切竟然只是高维投影   ");Sleep(5000);
+	outtextxy(200,200,"   现实是梦境   ");Sleep(5000);
+	outtextxy(200,240,"   梦境是现实   ");Sleep(5000);
+	outtextxy(200,280,"   这些太过繁杂  ");Sleep(5000);
+	outtextxy(200,320,"   我只想紧紧  ");Sleep(5000);
+	outtextxy(200,360,"   握紧你的素手  ");Sleep(5000);
+	outtextxy(200,400,"   飞向虚空   ");Sleep(5000);
+	outtextxy(200,440,"   十一维的波纹    ");Sleep(5000);
+	outtextxy(200,480,"   荡起涟漪   ");Sleep(5000);
+	outtextxy(200,520,"   回到我们的田园   ");Sleep(5000);
+}
+
+void SongsForThreebody()			//10、三体赋
+{
+	Sleep(1000);
+	PlaySound((".\\res\\SongsForThreebody.wav"),NULL, SND_FILENAME|SND_ASYNC);
+	loadimage(NULL, ".\\res\\SongsForThreebody.jpg",1100, 700, true);	
+	setcolor(RGB(12,247,36));
+	setfont(30,0,"楷体");
+	outtextxy(500,20,"   剑既出，已难收，    ");Sleep(5000);
+	outtextxy(500,60,"   百世轮回，只为一朝悠梦。    ");Sleep(5000);
+	outtextxy(500,100,"   盾难铸，情难割，   ");Sleep(5000);
+	outtextxy(500,140,"   亿载苍凉，归于幻梦一场。   ");Sleep(5000);
+	outtextxy(500,180,"   难结秦晋之好，   ");Sleep(5000);
+	outtextxy(500,220,"   唯有兵戎相交，   ");Sleep(5000);
+	outtextxy(500,260,"   沧海桑田，  ");Sleep(5000);
+	outtextxy(500,300,"   滚滚波涛，   ");Sleep(5000);
+	outtextxy(500,340,"   已成昨日尘嚣。  ");Sleep(5000);
+	outtextxy(500,380,"   曲终人散，  ");Sleep(5000);
+	outtextxy(500,420,"   徒剩寂寥。   ");Sleep(5000);
+	outtextxy(500,460,"   恩怨情仇，   ");Sleep(5000);
+	outtextxy(500,500,"   无人烦扰。   ");Sleep(5000);
+	outtextxy(500,540,"   尽长啸，   ");Sleep(5000);
+	outtextxy(500,580,"   千载春秋，活过。   ");Sleep(5000);
+	outtextxy(500,620,"   吾辈幸福。     ");Sleep(5000);
+	Sleep(198000);
+}
+void end()
+{
+	loadimage(NULL, ".\\res\\NvCeo.jpg",1100, 700, true);
+	setcolor(RGB(0,0,255));
+	setfont(80,0,"宋体");
+	Sleep(1000);
+	outtextxy(400,20,"--谢谢观看 再见--");
+}
+
+
